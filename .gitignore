@@ -21,7 +21,7 @@ Thumbs.db
 *.sqlite3
 
 *.jpg
-*.png
+
 
 # Arquivos estáticos coletados (usados em produção)
 staticfiles/
