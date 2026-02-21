@@ -3,6 +3,17 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from products.models import Produto, Roupa, ConjuntoRoupa, KitBeleza, Perfumaria, Acessorio
 from itertools import chain
 
+
+from django.http import HttpResponse
+from django.conf import settings
+import os
+
+def service_worker(request):
+    sw_path = os.path.join(settings.BASE_DIR, 'static/service-worker.js')
+    with open(sw_path, 'r') as f:
+        return HttpResponse(f.read(), content_type='application/javascript')
+
+
 def index(request):
     categoria = request.GET.get('categoria', 'perfumaria')
     query = request.GET.get('q', '')
