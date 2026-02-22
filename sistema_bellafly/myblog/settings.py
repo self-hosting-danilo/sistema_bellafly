@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'products',
     'fidelity',
     'myblog',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -73,7 +74,9 @@ ROOT_URLCONF = 'myblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [
+            BASE_DIR / 'global' / 'templates'
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -164,7 +167,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'global'/ 'static',
 ]
 
 # WhiteNoise configuration for static files in production
