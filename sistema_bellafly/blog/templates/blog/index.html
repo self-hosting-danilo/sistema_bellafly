@@ -5,19 +5,33 @@
 
     <section class="products">
         {% for produto in produtos %}
-        {% if produto.ativo == True %}
-        <div class="card">
-            <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }} image">
-            <h2>{{ produto.nome }}</h2>
-            <p id="description">{{ produto.descricao }}</p>
-            <div class="price">R$ {{ produto.preco }}</div>
-            <div class="price">Disponível: {{ produto.quantidade_estoque }}</div>
-            <a class="btn" href="https://wa.me/557981718236?text=Olá,+tenho+interesse+no+{{ produto.nome|urlencode }} - {{ produto.preco|floatformat:2 }}" target="_blank">💬 Comprar pelo WhatsApp</a>
-            <a class="btn add-to-cart" data-nome="{{ produto.nome }}" data-preco="{{ produto.preco|floatformat:2 }}">🛒 Adicionar ao Carrinho</a>
-        </div>
-        {% endif %}
+            {% if produto.ativo == True %}
+                <div class="card">
+                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }} image">
+                    
+                    <h2>{{ produto.nome }}</h2>
+                    
+                    <p id="description">{{ produto.descricao }}</p>
+                    
+                    <div class="card-footer">
+                        <div class="price">R$ {{ produto.preco }}</div>
+                        <div class="stock-info" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                            Disponível: {{ produto.quantidade_estoque }}
+                        </div>
+                        
+                        <a class="btn" href="https://wa.me/557981718236?text=Olá..." target="_blank">
+                            <span>💬 Comprar via WhatsApp</span>
+                        </a>
+                        
+                        <button class="btn add-to-cart" data-nome="{{ produto.nome }}" data-preco="{{ produto.preco|floatformat:2 }}">
+                            <span>🛒 Adicionar ao Carrinho</span>
+                        </button>
+                    </div>
+                </div>
+            {% endif %}
+
         {% empty %}
-        <div style="text-align:center; width:100%;">Nenhum produto encontrado nesta categoria.</div>
+            <div style="text-align:center; width:100%;">Nenhum produto encontrado nesta categoria.</div>
         {% endfor %}
     </section>
 

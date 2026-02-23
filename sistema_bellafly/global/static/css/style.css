@@ -370,25 +370,37 @@ header form button:active {
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-xl);
-  padding: 1rem;
+  padding: 1.5rem; /* Aumentado para melhor respiro */
   text-align: center;
   box-shadow: var(--shadow-md);
   transition: var(--transition-slow);
   position: relative;
   overflow: hidden;
-  animation: fade-in-up 0.6s ease-out both;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+  height: 100%; /* Faz todos os cards da mesma linha terem a mesma altura */
 }
 
 #description {
-  max-height: 3.6em; /* altura aproximada para 2 linhas, ajuste como quiser */
-  overflow-y: auto; /* ativa rolagem vertical quando o texto ultrapassar a altura */
-  overflow-x: hidden; /* evita rolagem horizontal */
-  line-height: 1.8; /* altura da linha */
-  text-align: justify; /* opcional: deixa o texto mais bonito */
-  padding-right: 4px; /* espaço para não encostar na barra */
-  scrollbar-width: thin; /* scrollbar mais discreta (Firefox) */
+  flex-grow: 1; /* ISSO É A CHAVE: empurra o que estiver abaixo para o rodapé do card */
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  
+  /* Em vez de scroll, recomendo 'line-clamp' para um visual mais limpo */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Número de linhas visíveis antes do "..." */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 @keyframes fade-in-up {
