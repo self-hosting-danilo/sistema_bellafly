@@ -22,7 +22,7 @@
 <body>
   <header>
     <h1>🦋 Bellafly 🦋</h1>
-    <form method="get">
+    <form method="get" action="{% url 'blog:product_search' %}">
       <input type="text" name="q" placeholder="Buscar em todos os produtos..." value="{{ query|default_if_none:'' }}">
       <button type="submit">🔍 Pesquisar</button>
       {% if categoria %}

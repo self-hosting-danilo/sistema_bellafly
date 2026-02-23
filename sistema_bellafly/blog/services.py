@@ -38,7 +38,7 @@ def search_all_products(query: str):
     )
 
 
-def paginate_queryset(queryset, page_number, per_page=9):
+def paginate_queryset(queryset, page_number, per_page=8):
     paginator = Paginator(queryset, per_page)
 
     try:
