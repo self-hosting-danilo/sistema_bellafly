@@ -1,0 +1,78 @@
+        <!-- Sidebar Filters -->
+        <aside class="filters-sidebar">
+            <form method="get" id="filter-form">
+                <!-- Categories Filter -->
+                <div class="filter-group">
+                    <h3>Categoria</h3>
+                    <div class="filter-option">
+                        <input type="checkbox" id="perfumaria" name="category" value="perfumaria">
+                        <label for="perfumaria">Perfumaria</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="skincare" name="category" value="skincare">
+                        <label for="skincare">Skincare</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="maquiagem" name="category" value="maquiagem">
+                        <label for="maquiagem">Maquiagem</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="tratamentos" name="category" value="tratamentos">
+                        <label for="tratamentos">Tratamentos</label>
+                    </div>
+                </div> 
+
+                <!-- Price Filter -->
+                <div class="filter-group">
+                    <h3>Preço</h3>
+                    <div class="price-range">
+                        <input type="number" name="min_price" placeholder="Min" min="0" value="">
+                        <span>—</span>
+                        <input type="number" name="max_price" placeholder="Max" min="0" value="">
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="filter-group">
+                    <h3>Classificação</h3>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating5" name="rating" value="5">
+                        <label for="rating5">⭐⭐⭐⭐⭐ (5 estrelas)</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating4" name="rating" value="4">
+                        <label for="rating4">⭐⭐⭐⭐ (4+ estrelas)</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating3" name="rating" value="3">
+                        <label for="rating3">⭐⭐⭐ (3+ estrelas)</label>
+                    </div>
+                </div>
+
+                <!-- Sort Filter -->
+                <div class="filter-group">
+                    <h3>Ordenar Por</h3>
+                    <div class="filter-option">
+                        <input type="radio" id="relevant" name="sort" value="relevant" checked>
+                        <label for="relevant">Mais Relevante</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" id="price-asc" name="sort" value="price_asc">
+                        <label for="price-asc">Menor Preço</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" id="price-desc" name="sort" value="price_desc">
+                        <label for="price-desc">Maior Preço</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" id="newest" name="sort" value="newest">
+                        <label for="newest">Mais Novo</label>
+                    </div>
+                </div>
+
+                <!-- Filter Button -->
+                <button type="submit" class="add-to-cart" style="margin-top: 1rem;">
+                    Aplicar Filtros
+                </button>
+            </form>
+        </aside> 

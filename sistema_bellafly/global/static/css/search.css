@@ -1,0 +1,121 @@
+/* ===================================
+   VARIÁVEIS GLOBAIS
+=================================== */
+
+:root {
+    --primary: #d4af7a;
+    --primary-light: #e6c79a;
+
+    --dark: #1a1a1a;
+    --light: #f5f1ed;
+
+    --accent-pink: #e8b4d4;
+    --accent-purple: #9b7bb2;
+
+    --text-dark: #2d2d2d;
+    --text-light: #666666;
+    --text-white: #ffffff;
+
+    --border: #e0d5c8;
+
+    --gradient-primary: linear-gradient(135deg, #d4af7a 0%, #e8b4d4 100%);
+    --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.16);
+    --shadow-glow: 0 0 15px rgba(212, 175, 122, 0.4);
+
+    --radius-xl: 50px;
+
+    --transition-normal: all 0.3s ease;
+}
+
+/* ===================================
+   BARRA DE PESQUISA
+=================================== */
+
+header form {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    animation: slide-up 0.8s ease-out 0.3s both;
+}
+
+/* Animação */
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* INPUT */
+
+header form input[type="text"] {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+    outline: none;
+    background: var(--light);
+    color: var(--text-dark);
+    font-weight: 400;
+
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+header form input[type="text"]::placeholder {
+    color: var(--text-light);
+}
+
+header form input[type="text"]:focus {
+    background: var(--text-white);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+    border-color: var(--primary-light);
+}
+
+/* BOTÃO */
+
+header form button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+
+    border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+    background: var(--gradient-primary);
+    color: var(--text-white);
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    border: 1px solid var(--border);
+    border-left: none;
+
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+header form button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+header form button:active {
+    transform: translateY(0) scale(0.98);
+}

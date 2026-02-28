@@ -39,7 +39,7 @@ def product_list(request):
         "total_pages": paginator.num_pages,
     }
 
-    return render(request, "blog/index.html", context)
+    return render(request, "blog/products.html", context)
 
 
 def product_search(request):
@@ -62,4 +62,4 @@ def product_search(request):
         "total_pages": paginator.num_pages,
     }
 
-    return render(request, "blog/index.html", context)
+    return render(request, "blog/products.html", context)
