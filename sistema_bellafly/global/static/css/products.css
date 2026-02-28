@@ -97,6 +97,7 @@
         box-shadow: var(--shadow-sm);
         transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
         position: relative;
+        height: 100%; /* Faz todos os cards da mesma linha terem a mesma altura */
     }
 
     .product-card:hover {
@@ -216,6 +217,20 @@
         box-shadow: var(--shadow-md);
     }
 
+    .product-desc {
+    flex-grow: 1; /* ISSO É A CHAVE: empurra o que estiver abaixo para o rodapé do card */
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    
+    /* Em vez de scroll, recomendo 'line-clamp' para um visual mais limpo */
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Número de linhas visíveis antes do "..." */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
     /* ==================== LAYOUT ==================== */
     .products-layout {
         display: grid;

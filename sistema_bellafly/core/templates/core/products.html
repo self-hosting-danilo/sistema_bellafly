@@ -16,7 +16,13 @@
         <p>Descubra nossa coleção completa de perfumes e beleza premium</p>
     </div>
 
-    
+      <!-- INFO DA PAGINAÇÃO -->
+    {% if produtos.object_list %}
+    <div class="pagination-info">
+        <p>Mostrando {{ produtos.start_index }}-{{ produtos.end_index }} de {{ produtos.paginator.count }} produtos</p>
+    </div>
+    {% endif %}
+
 
     <!-- Products Layout -->
     <div class="products-layout">
@@ -132,6 +138,57 @@
                 </div>
                 {% endfor %}
             </div>
+
+
+              <!-- PAGINAÇÃO -->
+            {% if produtos.paginator.num_pages > 1 %}
+            <div class="pagination-container">
+                <div class="pagination">
+                
+
+                <!-- Primeira página -->
+                {% if produtos.has_previous %}
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page=1" class="page-btn first">
+                    ↞ Primeira
+                    </a>
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page={{ produtos.previous_page_number }}" class="page-btn prev">
+                    ← Anterior
+                    </a>
+                {% endif %}
+
+                <!-- Números das páginas -->
+                {% for page in page_range %}
+                    {% if page == '...' %}
+                    <span class="page-dots">...</span>
+                    {% elif page == current_page %}
+                    <span class="page-btn current">{{ page }}</span>
+                    {% else %}
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page={{ page }}" class="page-btn">
+                        {{ page }}
+                    </a>
+                    {% endif %}
+                {% endfor %}
+
+                <!-- Próxima página -->
+                {% if produtos.has_next %}
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page={{ produtos.next_page_number }}" class="page-btn next">
+                    Próxima →
+                    </a>
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page={{ produtos.paginator.num_pages }}" class="page-btn last">
+                    Última ↠
+                    </a>
+                {% endif %}
+
+                </div>
+                
+                <!-- Info adicional -->
+                <div class="pagination-summary">
+                Página {{ produtos.number }} de {{ produtos.paginator.num_pages }}
+                </div>
+                
+            </div>
+            {% endif %}
+
 
         </div>
     </div>
