@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from products.models import Produto, Roupa, ConjuntoRoupa, KitBeleza, Perfumaria, Acessorio
+from core.models.products import Produto, Roupa, ConjuntoRoupa, KitBeleza, Perfumaria, Acessorio
 from itertools import chain
 
 
@@ -14,7 +14,7 @@ def service_worker(request):
         return HttpResponse(f.read(), content_type='application/javascript')
 
 
-from .services import (
+from ..services import (
     get_products_by_category,
     search_all_products,
     paginate_queryset,
@@ -39,7 +39,7 @@ def product_list(request):
         "total_pages": paginator.num_pages,
     }
 
-    return render(request, "blog/products.html", context)
+    return render(request, "core/products.html", context)
 
 
 def product_search(request):
@@ -62,4 +62,4 @@ def product_search(request):
         "total_pages": paginator.num_pages,
     }
 
-    return render(request, "blog/products.html", context)
+    return render(request, "core/products.html", context)

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'fidelity',
     'myblog',
     'blog',
+    'core'
 ]
 
 MIDDLEWARE = [

@@ -61,6 +61,7 @@ class CheckboxSell(models.Model):
         super().save(*args, **kwargs)
     
     class Meta:
+        app_label = 'fidelity'
         verbose_name = "Cartão Fidelidade"
         verbose_name_plural = "Cartão Fidelidade"
 

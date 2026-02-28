@@ -1,7 +1,7 @@
 from itertools import chain
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
-from products.models import (
+from core.models.products import (
     Roupa,
     Acessorio,
     KitBeleza,

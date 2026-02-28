@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Produto, Roupa, ConjuntoRoupa, KitBeleza, Perfumaria, Acessorio
+from ..models.products import Produto, Roupa, ConjuntoRoupa, KitBeleza, Perfumaria, Acessorio
 
 
 @admin.register(Produto)

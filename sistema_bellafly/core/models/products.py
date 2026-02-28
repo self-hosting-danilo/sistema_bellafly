@@ -10,6 +10,7 @@ class ProdutoBase(models.Model):
     ativo = models.BooleanField(default=True)
 
     class Meta:
+        app_label = 'products'
         abstract = True
 
     def __str__(self):
@@ -22,15 +23,27 @@ class Roupa(ProdutoBase):
     tamanho = models.CharField(max_length=2, choices=TAMANHO_CHOICES)
     cor = models.CharField(max_length=50)
 
+    class Meta:
+        app_label = 'products'
+
 class ConjuntoRoupa(ProdutoBase):
     roupas = models.ManyToManyField(Roupa, related_name='conjuntos')
+
+    class Meta:
+        app_label = 'products'
 
 class KitBeleza(ProdutoBase):
     produtos = models.ManyToManyField('Produto', related_name='kits_beleza')
 
+    class Meta:
+        app_label = 'products'
+
 class Perfumaria(ProdutoBase):
     fragrancia = models.CharField(max_length=100)
     volume_ml = models.PositiveIntegerField()
+
+    class Meta:
+        app_label = 'products'
 
 class Acessorio(ProdutoBase):
     pass

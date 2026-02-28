@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CheckboxSell
+from ..models.fidelity import CheckboxSell
 from django.forms import ModelForm
 from django.core.mail import send_mail
 import threading
