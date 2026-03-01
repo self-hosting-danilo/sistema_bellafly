@@ -1,0 +1,57 @@
+/* ================= MOBILE HEADER ================= */
+
+.mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+    }
+
+    header.header-shrink {
+        padding: 0.5rem 0;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        transition: font-size 0.3s ease;
+    }
+
+    header.header-shrink .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 260px;
+        height: 100vh;
+        background: var(--light);
+        flex-direction: column;
+        padding: 4rem 2rem;
+        box-shadow: var(--shadow-lg);
+        transition: left 0.3s ease;
+        z-index: 2000;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .header-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-icons form input {
+        display: none; /* esconde campo grande de busca */
+    }
+}

@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}Produtos - Bellafly{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+{% endblock extra_css %}
+
+
+{% block content %}
+<div class="products-page">
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Nossos Produtos</h1>
+        <p>Descubra nossa coleção completa de perfumes e beleza premium</p>
+    </div>
+
+      <!-- INFO DA PAGINAÇÃO -->
+    {% if produtos.object_list %}
+    <div class="pagination-info">
+        <p>Mostrando {{ produtos.start_index }}-{{ produtos.end_index }} de {{ produtos.paginator.count }} produtos</p>
+    </div>
+    {% endif %}
+
+
+    <!-- Products Layout -->
+    <div class="products-layout">
+
+                <!-- Sidebar Filters -->
+        <aside class="filters-sidebar">
+            <form method="get" id="filter-form">
+                <!-- Categories Filter -->
+                <div class="filter-group">
+                    <h3>Categoria</h3>
+                    <div class="filter-option">
+                        <a href="?categoria=perfumaria" class="nav-link">Perfumaria</a>
+                    </div>
+                    <div class="filter-option">
+                        <a href="?categoria=Roupas" class="nav-link">Roupas</a>
+                    </div>
+                    <div class="filter-option">
+                        <a href="?categoria=acessorios" class="nav-link">Acessórios</a>
+                    </div>
+                    <div class="filter-option">
+                        <a href="?categoria=kits" class="nav-link">Kits</a>
+                    </div>
+                    <div class="filter-option">
+                        <a href="?categoria=diversos" class="nav-link">Diversos</a>
+                    </div>
+                </div> 
+
+                <!-- Price Filter -->
+                <div class="filter-group">
+                    <h3>Preço</h3>
+                    <div class="price-range">
+                        <input type="number" name="min_price" placeholder="Min" min="0" value="">
+                        <span>—</span>
+                        <input type="number" name="max_price" placeholder="Max" min="0" value="">
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="filter-group">
+                    <h3>Classificação</h3>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating5" name="rating" value="5">
+                        <label for="rating5">⭐⭐⭐⭐⭐ (5 estrelas)</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating4" name="rating" value="4">
+                        <label for="rating4">⭐⭐⭐⭐ (4+ estrelas)</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating3" name="rating" value="3">
+                        <label for="rating3">⭐⭐⭐ (3+ estrelas)</label>
+                    </div>
+                </div>
+
+                <!-- Sort Filter -->
+                <div class="filter-group">
+                    <h3>Ordenar Por</h3>
+                    <div class="filter-option">
+                        <input type="radio" id="relevant" name="sort" value="relevant" checked>
+                        <label for="relevant">Mais Relevante</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" id="price-asc" name="sort" value="price_asc">
+                        <label for="price-asc">Menor Preço</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" id="price-desc" name="sort" value="price_desc">
+                        <label for="price-desc">Maior Preço</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" id="newest" name="sort" value="newest">
+                        <label for="newest">Mais Novo</label>
+                    </div>
+                </div>
+
+                <!-- Filter Button -->
+                <button type="submit" class="add-to-cart" style="margin-top: 1rem;">
+                    Aplicar Filtros
+                </button>
+            </form>
+        </aside> 
+
+        <!-- Products Grid -->
+        <div>
+            <div class="products-container">
+                {% for produto in produtos %}
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-3d">
+                            <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }} image">
+                        </div>
+                    </div>
+                    <span class="product-badge">{{ product.badge }}</span>
+                    <div class="product-info">
+                        <h3 class="product-name">{{ produto.nome }}</h3>
+                        <p class="product-category">{{ product.category }}</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ </div>
+                        <p class="product-price">R$ {{ produto.preco }}</p>
+                        <p class="product-desc">{{ produto.descricao }}</p>
+                        <button class="add-to-cart" data-nome="{{ produto.nome }}" data-preco="{{ produto.preco|floatformat:2 }}">
+                            <span>Adicionar ao Carrinho</span>
+                        </button>
+                        
+                    </div>
+                </div>
+                {% empty %}
+                <div class="no-products" style="grid-column: 1 / -1;">
+                    <h3 style="color: var(--text-dark); margin-bottom: 1rem;">
+                        Nenhum produto encontrado
+                    </h3>
+                    <p>Tente ajustar seus filtros ou buscar por outro termo.</p>
+                </div>
+                {% endfor %}
+            </div>
+
+
+              <!-- PAGINAÇÃO -->
+            {% if produtos.paginator.num_pages > 1 %}
+            <div class="pagination-container">
+                <div class="pagination">
+                
+
+                <!-- Primeira página -->
+                {% if produtos.has_previous %}
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page=1" class="page-btn first">
+                    ↞ Primeira
+                    </a>
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page={{ produtos.previous_page_number }}" class="page-btn prev">
+                    ← Anterior
+                    </a>
+                {% endif %}
+
+                <!-- Números das páginas -->
+                {% for page in page_range %}
+                    {% if page == '...' %}
+                    <span class="page-dots">...</span>
+                    {% elif page == current_page %}
+                    <span class="page-btn current">{{ page }}</span>
+                    {% else %}
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page={{ page }}" class="page-btn">
+                        {{ page }}
+                    </a>
+                    {% endif %}
+                {% endfor %}
+
+                <!-- Próxima página -->
+                {% if produtos.has_next %}
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page={{ produtos.next_page_number }}" class="page-btn next">
+                    Próxima →
+                    </a>
+                    <a href="?{% if query %}q={{ query }}&{% endif %}{% if categoria %}categoria={{ categoria }}&{% endif %}page={{ produtos.paginator.num_pages }}" class="page-btn last">
+                    Última ↠
+                    </a>
+                {% endif %}
+
+                </div>
+                
+                <!-- Info adicional -->
+                <div class="pagination-summary">
+                Página {{ produtos.number }} de {{ produtos.paginator.num_pages }}
+                </div>
+                
+            </div>
+            {% endif %}
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

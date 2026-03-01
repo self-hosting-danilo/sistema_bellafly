@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bellafly - Perfumaria & Beleza Premium{% endblock %}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+
+    </style>
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">Bellafly ✨</a>
+            <nav class="nav">
+                <a href="#" class="nav-link">Perfumaria</a>
+                <a href="#" class="nav-link">Skincare</a>
+                <a href="#" class="nav-link">Maquiagem</a>
+                <a href="#" class="nav-link">Sobre</a>
+            </nav>
+            <div class="nav-icons">
+                <button class="icon-btn">🔍</button>
+                <button class="icon-btn">❤️</button>
+                <button class="icon-btn">
+                    🛍️
+                    <span class="cart-badge">3</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bellafly</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1.5rem; opacity: 0.8;">
+                    A essência da beleza premium ao seu alcance.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Categorias</h3>
+                <a href="#" class="footer-link">Perfumaria</a>
+                <a href="#" class="footer-link">Skincare</a>
+                <a href="#" class="footer-link">Maquiagem</a>
+                <a href="#" class="footer-link">Tratamentos</a>
+            </div>
+            <div class="footer-section">
+                <h3>Suporte</h3>
+                <a href="#" class="footer-link">Fale Conosco</a>
+                <a href="#" class="footer-link">Dúvidas Frequentes</a>
+                <a href="#" class="footer-link">Envios e Devoluções</a>
+                <a href="#" class="footer-link">Política de Privacidade</a>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <a href="#" class="footer-link">Instagram</a>
+                <a href="#" class="footer-link">Facebook</a>
+                <a href="#" class="footer-link">TikTok</a>
+                <a href="#" class="footer-link">Pinterest</a>
+            </div>
+        </div>
+        <div class="footer-divider">
+            <p>&copy; 2024 Bellafly Premium. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
