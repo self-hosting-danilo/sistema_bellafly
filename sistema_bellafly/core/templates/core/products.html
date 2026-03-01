@@ -34,20 +34,19 @@
                 <div class="filter-group">
                     <h3>Categoria</h3>
                     <div class="filter-option">
-                        <input type="checkbox" id="perfumaria" name="category" value="perfumaria">
-                        <label for="perfumaria">Perfumaria</label>
+                        <a href="?categoria=perfumaria" class="nav-link">Perfumaria</a>
                     </div>
                     <div class="filter-option">
-                        <input type="checkbox" id="skincare" name="category" value="skincare">
-                        <label for="skincare">Skincare</label>
+                        <a href="?categoria=Roupas" class="nav-link">Roupas</a>
                     </div>
                     <div class="filter-option">
-                        <input type="checkbox" id="maquiagem" name="category" value="maquiagem">
-                        <label for="maquiagem">Maquiagem</label>
+                        <a href="?categoria=acessorios" class="nav-link">Acessórios</a>
                     </div>
                     <div class="filter-option">
-                        <input type="checkbox" id="tratamentos" name="category" value="tratamentos">
-                        <label for="tratamentos">Tratamentos</label>
+                        <a href="?categoria=kits" class="nav-link">Kits</a>
+                    </div>
+                    <div class="filter-option">
+                        <a href="?categoria=diversos" class="nav-link">Diversos</a>
                     </div>
                 </div> 
 
@@ -120,7 +119,7 @@
                     <div class="product-info">
                         <h3 class="product-name">{{ produto.nome }}</h3>
                         <p class="product-category">{{ product.category }}</p>
-                        <div class="product-rating">{{ product.rating }}</div>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ </div>
                         <p class="product-price">R$ {{ produto.preco }}</p>
                         <p class="product-desc">{{ produto.descricao }}</p>
                         <button class="add-to-cart" data-nome="{{ produto.nome }}" data-preco="{{ produto.preco|floatformat:2 }}">
