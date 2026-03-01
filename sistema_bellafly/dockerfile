@@ -25,4 +25,4 @@ USER appuser
 EXPOSE 8000
 
 # Comando sem wait_for_db - deixa o EasyPanel gerenciar a dependência
-CMD ["sh", "-c", "sleep 10 && python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 --workers 3 --timeout 120 myblog.wsgi:application"]
+CMD ["sh", "-c", "sleep 10 && python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 --workers 3 --timeout 120 config.wsgi:application"]
