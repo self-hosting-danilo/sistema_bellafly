@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock extra_css %}
+
+
+    {% block content %}
+    
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Realce sua essência com a Bellafly</h2>
+                <p>O melhor da perfumaria, cosméticos e moda em um só lugar.</p>
+                <a href="#categorias" class="btn-principal">Explorar Produtos</a>
+            </div>
+        </section>
+
+        <section id="categorias" class="container">
+            <h3 class="section-title">O que você procura?</h3>
+            <div class="grid-categorias">
+                <div class="card-categoria">
+                    <img src="perfumes.jpg" alt="Frasco de perfume luxuoso">
+                    <h4>Perfumes</h4>
+                </div>
+                <div class="card-categoria">
+                    <img src="beleza.jpg" alt="Produtos de maquiagem e cuidados">
+                    <h4>Beleza</h4>
+                </div>
+                <div class="card-categoria">
+                    <img src="roupas.jpg" alt="Peças de vestuário moderno">
+                    <h4>Roupas</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="fidelidade" class="fidelidade-section">
+            <div class="container">
+                <h3>Clube de Fidelidade Bellafly</h3>
+                <p>Suas compras valem pontos que podem ser trocados por descontos exclusivos e brindes especiais.</p>
+                <div class="fidelidade-info">
+                    <span><strong>1. Compre</strong></span>
+                    <span><strong>2. Acumule</strong></span>
+                    <span><strong>3. Resgate</strong></span>
+                </div>
+                <button class="btn-fidelidade">Quero Participar</button>
+            </div>
+        </section>
+
+        <section id="parceiros" class="container">
+            <h3 class="section-title">Compre em nossas lojas oficiais</h3>
+            <div class="links-externos">
+                <a href="https://www.boticario.com.br" target="_blank" class="link-loja">O Boticário</a>
+                <a href="https://www.natura.com.br" target="_blank" class="link-loja">Natura</a>
+                <a href="https://www.eudora.com.br" target="_blank" class="link-loja">Eudora</a>
+                <a href="https://br.shein.com" target="_blank" class="link-loja">Shein</a>
+                <a href="#" target="_blank" class="link-loja">Avon</a>
+            </div>
+        </section>
+    {% endblock content %}
+    

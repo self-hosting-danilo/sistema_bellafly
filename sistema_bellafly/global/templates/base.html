@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{% static 'css/search.css' %}">
   <link rel="stylesheet" href="{% static 'css/pagination.css' %}">
   <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mobile-aside.css' %}">
   {% block extra_css %}{% endblock extra_css %}
 
   <link rel="shortcut icon" href="{% static 'icons/favicon.png' %}" type="image/x-icon">
@@ -41,11 +42,10 @@
 
       <!-- NAVEGAÇÃO PRINCIPAL -->
       <nav class="nav">
-        <a href="?categoria=perfumaria" class="nav-link">Perfumaria</a>
-        <a href="?categoria=roupas" class="nav-link">Roupas</a>
-        <a href="?categoria=acessorios" class="nav-link">Acessórios</a>
-        <a href="?categoria=kits" class="nav-link">Kits</a>
-        <a href="?categoria=diversos" class="nav-link">diversos</a>
+        <a href="{% url "blog:index" %}" class="nav-link">Home</a>
+        <a href="{% url "blog:shop" %}" class="nav-link">Loja</a>
+        <a href="{% url "blog:index" %}#parceiros" class="nav-link">Loja Externa</a>
+        <a href="{% url "blog:index" %}#fidelidade" class="nav-link">Fidelidade</a>
       </nav>
 
       <!-- ÍCONES -->

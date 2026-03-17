@@ -1,0 +1,68 @@
+/* Mobile: transforma o sidebar em barra horizontal com scroll */
+@media (max-width: 768px) {
+  .filters-sidebar {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 8px 12px;
+    /* Remove qualquer display:none ou visibilidade oculta */
+    display: block !important;
+  }
+
+  .filters-sidebar form,
+  .filters-sidebar #filter-form {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* Esconde o título "Categoria" no mobile */
+  .filters-sidebar .filter-group h3 {
+    display: none;
+  }
+  .filters-sidebar .filter-group input {
+    display: none;
+  }
+  .filters-sidebar .filter-group label {
+    display: none;
+  }
+.filters-sidebar button {
+    display: none;
+  }
+
+
+
+  /* Coloca os itens em linha */
+  .filters-sidebar .filter-group {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-bottom: -5px;
+  }
+
+  .filters-sidebar .filter-option {
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* Estilo de pill/chip para os links */
+  .filters-sidebar .filter-option .nav-link {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 14px;
+    text-decoration: none;
+    background: #fff;
+    color: #333;
+  }
+
+  .filters-sidebar .filter-option .nav-link:hover,
+  .filters-sidebar .filter-option .nav-link.active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+  }
+}
